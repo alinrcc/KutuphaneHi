@@ -1,0 +1,28 @@
+﻿@model Book
+@{
+    var kategoriListesi = ViewData["categories"] as List<Category>;
+    var yazarListesi = ViewData["authors"] as List<Author>;
+    var yayinEviListesi = ViewData["publishers"] as List<Publisher>;
+}
+<form class="form" method="post">
+    <label asp-for="Name">Book name</label>
+    <input asp-for="Name" class="form-control" value="@Model.Name" placeholder="Please enter a book name" />
+
+    <label asp-for="PageCount">Page Count</label>
+    <input asp-for="PageCount" class="form-control" value="@Model.PageCount" placeholder="write the number of pages" />
+
+    <label asp-for="ISBN" class="form-label">ISBN Code</label>
+    <input asp-for="ISBN" class="form-control" value="@Model.ISBN" placeholder="please enter ISBN" />
+
+    <label asp-for=Category class="form-label" asp-for="CategoryId">Select a category</label>
+    <select asp-for="CategoryId" class="form-select" asp-items="@(new SelectList(kategoriListesi,"Id","Name"))"></select>
+
+    <label asp-for="Authors" class="form-label" asp-for="Authors">Select Author(s)</label>
+    <select asp-for="Authors" class="form-select" asp-items="@(new MultiSelectList(yazarListesi,"Id","Name"))"></select>
+
+    <label asp-for="Publishers" class="form-label" asp-for="Publishers">Select Publisher(s)</label>
+    <select asp-for="Publishers" class="form-select" asp-items="@(new MultiSelectList(yayinEviListesi,"Id","Name",Model.Publishers))"></select>
+
+    <button type="submit" class="btn btn-secondary">Add</button>
+    <button type="reset" class="btn btn-danger">Clear</button>
+</form>

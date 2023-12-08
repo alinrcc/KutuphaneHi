@@ -1,0 +1,13 @@
+﻿@model Author
+
+<form class="form" method="post">
+    <label asp-for="Name" class="form-label">Author Name:</label>
+    <input asp-for="Name" class="form-control" value="@Model.Name" placeholder="Please enter an author" />
+
+    <label asp-for="Biography" class="form-label">Biography:</label>
+    <textarea asp-for="Biography" class="form-control" rows="5" placeholder="Please enter a biography">@Model.Biography</textarea>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <button type="reset" class="btn btn-danger">Clear</button>
+
+</form>

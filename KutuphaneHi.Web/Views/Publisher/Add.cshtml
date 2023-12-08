@@ -1,0 +1,13 @@
+﻿@model Publisher
+
+<form class="form" method="post">
+    <label asp-for="Name" class="form-label">Publisher Name:</label>
+    <input asp-for="Name" class="form-control" placeholder="Please enter a publisher" />
+
+    <label asp-for="Address" class="form-label">Address:</label>
+    <input asp-for="Address" class="form-control" value="@Model.Address" placeholder="enter a publisher address" />
+
+    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="reset" class="btn btn-danger">Clear</button>
+
+</form>
